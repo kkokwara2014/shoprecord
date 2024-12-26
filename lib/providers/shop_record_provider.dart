@@ -25,12 +25,12 @@ class ShopRecordProvider extends ChangeNotifier {
 
   //calculcating incomes
   double get totalIncome => _shopRecordList
-      .where((tx) => tx.isIncome)
-      .fold(0, (initval, tx) => initval + tx.price);
+      .where((rec) => rec.isIncome)
+      .fold(0, (initval, element) => (initval + element.price));
   //calculcating expenses
   double get totalExpenses => _shopRecordList
-      .where((tx) => !tx.isIncome)
-      .fold(0, (initval, tx) => initval + tx.price);
+      .where((rec) => !rec.isIncome)
+      .fold(0, (initval, element) => (initval + element.price));
 
   //calculate remaining balance
   double get remainingBalance => totalIncome - totalExpenses;
@@ -49,5 +49,9 @@ class ShopRecordProvider extends ChangeNotifier {
       await _shopRecordRef.add(newShopRecord.toMap());
     }
     notifyListeners();
+  }
+
+  int totalTransaction() {
+    return _shopRecordList.length;
   }
 }
