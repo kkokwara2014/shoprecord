@@ -26,7 +26,6 @@ class _AllRecordScreenState extends State<AllRecordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final shopRecProvider = Provider.of<ShopRecordProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text("All Records"),
@@ -37,81 +36,83 @@ class _AllRecordScreenState extends State<AllRecordScreen> {
         padding: const EdgeInsets.all(5),
         child: Column(
           children: [
-            Card(
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 16,
-                ),
-                child: Column(
-                  children: [
-                    const Text(
-                      "Transaction Summary",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+            Consumer<ShopRecordProvider>(
+              builder: (context, provider, child) => Card(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 16,
+                  ),
+                  child: Column(
+                    children: [
+                      const Text(
+                        "Transaction Summary",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                "Income",
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.green,
-                                ),
-                              ),
-                              Text(
-                                "\u20A6${shopRecProvider.totalIncome}",
-                                style: const TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
-                                  color: incomeColor,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                "Expenses",
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w500,
-                                  color: expensesColor,
-                                ),
-                              ),
-                              Text(
-                                "\u20A6${shopRecProvider.totalExpenses}",
-                                style: const TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.red,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ]),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Balance: \u20A6${shopRecProvider.remainingBalance}",
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
+                      const SizedBox(
+                        height: 10,
                       ),
-                    )
-                  ],
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "Income",
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.green,
+                                  ),
+                                ),
+                                Text(
+                                  "\u20A6${provider.totalIncome}",
+                                  style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                    color: incomeColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "Expenses",
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w500,
+                                    color: expensesColor,
+                                  ),
+                                ),
+                                Text(
+                                  "\u20A6${provider.totalExpenses}",
+                                  style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.red,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ]),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Balance: \u20A6${provider.remainingBalance}",
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
