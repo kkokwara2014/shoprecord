@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1054398658075",
+    "project_id": "shoprecord-c1e98",
+    "storage_bucket": "shoprecord-c1e98.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1054398658075:android:c24bb9404633c646b02abe",
+        "android_client_info": {
+          "package_name": "com.example.shop_record"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXs4FbiuPRZ3TJCy_wV-AycJIZXAXXCJ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
