@@ -26,6 +26,10 @@ class _AllRecordScreenState extends State<AllRecordScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // final shoprecProvider =
+    //     Provider.of<ShopRecordProvider>(context, listen: false);
+    // final shoprecProvider =
+    //     Provider.of<ShopRecordProvider>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
         title: const Text("All Records"),

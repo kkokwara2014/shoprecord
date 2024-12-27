@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shop_record/models/shop_record_model.dart';
 
 class ShopRecordProvider extends ChangeNotifier {
+  //laoding the records in the constructor
   ShopRecordProvider() {
     loadShopRecords();
   }
@@ -51,7 +53,13 @@ class ShopRecordProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  //getting the total transactions
   int totalTransaction() {
     return _shopRecordList.length;
   }
+
+  //static method to access the ShopRecordProvider
+  // static ShopRecordProvider of(BuildContext context, {bool listen = true}) {
+  //   return Provider.of<ShopRecordProvider>(context, listen: listen);
+  // }
 }

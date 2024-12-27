@@ -26,6 +26,8 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // final shoprecProvider =
+    //     Provider.of<ShopRecordProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         title: const Text("All Expenses"),

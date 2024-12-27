@@ -13,12 +13,18 @@ class LandingScreen extends StatefulWidget {
 
 class _LandingScreenState extends State<LandingScreen> {
   int pageIndex = 0;
-  List pages = [
-    const CategoryScreen(),
-    const AllRecordScreen(),
-    const IncomeScreen(),
-    const ExpensesScreen(),
-  ];
+  late List pages;
+
+  @override
+  void initState() {
+    super.initState();
+    pages = [
+      const CategoryScreen(),
+      const AllRecordScreen(),
+      const IncomeScreen(),
+      const ExpensesScreen(),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
