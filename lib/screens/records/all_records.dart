@@ -26,10 +26,6 @@ class _AllRecordScreenState extends State<AllRecordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final shoprecProvider =
-    //     Provider.of<ShopRecordProvider>(context, listen: false);
-    // final shoprecProvider =
-    //     Provider.of<ShopRecordProvider>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
         title: const Text("All Records"),
@@ -40,14 +36,14 @@ class _AllRecordScreenState extends State<AllRecordScreen> {
         padding: const EdgeInsets.all(5),
         child: Column(
           children: [
-            Consumer<ShopRecordProvider>(
-              builder: (context, provider, child) => Card(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 16,
-                  ),
-                  child: Column(
+            Card(
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 16,
+                ),
+                child: Consumer<ShopRecordProvider>(
+                  builder: (context, provider, child) => Column(
                     children: [
                       const Text(
                         "Transaction Summary",
@@ -74,7 +70,8 @@ class _AllRecordScreenState extends State<AllRecordScreen> {
                                   ),
                                 ),
                                 Text(
-                                  "\u20A6${provider.totalIncome}",
+                                  "\u20A6${provider.totalIncome.toStringAsFixed(2)}",
+                                  // "\u20A6${totalincome.toStringAsFixed(2)}",
                                   style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w500,
@@ -95,7 +92,8 @@ class _AllRecordScreenState extends State<AllRecordScreen> {
                                   ),
                                 ),
                                 Text(
-                                  "\u20A6${provider.totalExpenses}",
+                                  "\u20A6${provider.totalExpenses.toStringAsFixed(2)}",
+                                  // "\u20A6${totalexpenses.toStringAsFixed(2)}",
                                   style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w500,
@@ -109,7 +107,8 @@ class _AllRecordScreenState extends State<AllRecordScreen> {
                         height: 10,
                       ),
                       Text(
-                        "Balance: \u20A6${provider.remainingBalance}",
+                        "Balance: \u20A6${provider.remainingBalance.toStringAsFixed(2)}",
+                        // "Balance: \u20A6${rembalance.toStringAsFixed(2)}",
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w600,

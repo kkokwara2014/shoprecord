@@ -30,6 +30,7 @@ class _AddShopRecordScreenState extends State<AddShopRecordScreen> {
     if (name.isEmpty || price <= 0) return;
     Provider.of<ShopRecordProvider>(context, listen: false)
         .addShopRecord(widget.categoryModel.name, name, price, note, _isIncome);
+    Provider.of<ShopRecordProvider>(context, listen: false).loadShopRecords();
     Navigator.pop(context);
   }
 

@@ -26,8 +26,6 @@ class _IncomeScreenState extends State<IncomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final shoprecProvider =
-    //     Provider.of<ShopRecordProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         title: const Text("All Incomes"),
@@ -41,7 +39,7 @@ class _IncomeScreenState extends State<IncomeScreen> {
           children: [
             Consumer<ShopRecordProvider>(
               builder: (context, provider, child) => Text(
-                "Total Income: \u20A6${provider.totalIncome}",
+                "Total Income: \u20A6${provider.totalIncome.toStringAsFixed(2)}",
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w700,

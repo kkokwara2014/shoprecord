@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:shop_record/models/shop_record_model.dart';
 
 class ShopRecordProvider extends ChangeNotifier {
@@ -22,6 +21,12 @@ class ShopRecordProvider extends ChangeNotifier {
       _shopRecordList =
           snapshot.docs.map((e) => ShopRecordModel.fromFirestore(e)).toList();
     } catch (e) {}
+
+//callling on the methods that calculate total income, expenses and remaining balance
+    totalIncome;
+    totalExpenses;
+    remainingBalance;
+
     notifyListeners();
   }
 
@@ -46,10 +51,20 @@ class ShopRecordProvider extends ChangeNotifier {
         price: price,
         note: note,
         isIncome: isIncome,
-        created: DateTime.now().toString());
+        created: DateTime.now().toString().split(" ")[0]);
     if (name.isNotEmpty && price > 0) {
       await _shopRecordRef.add(newShopRecord.toMap());
     }
+
+    notifyListeners();
+  }
+
+  Future<void> deleteRecord(String recId) async {
+    await FirebaseFirestore.instance
+        .collection("shoprecords")
+        .doc(recId)
+        .delete();
+
     notifyListeners();
   }
 

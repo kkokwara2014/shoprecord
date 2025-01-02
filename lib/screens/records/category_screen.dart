@@ -17,6 +17,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
   final CollectionReference categoryRef =
       FirebaseFirestore.instance.collection("categories");
   Query get categories => categoryRef.orderBy("name", descending: false);
+
   @override
   Widget build(BuildContext context) {
     final categoryProvider = Provider.of<CategoryProvider>(context);

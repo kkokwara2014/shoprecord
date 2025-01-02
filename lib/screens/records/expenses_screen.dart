@@ -26,8 +26,6 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final shoprecProvider =
-    //     Provider.of<ShopRecordProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         title: const Text("All Expenses"),
@@ -40,13 +38,15 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Consumer<ShopRecordProvider>(
-              builder: (context, provider, child) => Text(
-                "Total Expenses: \u20A6${provider.totalExpenses}",
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
+              builder: (context, provider, child) => provider.totalExpenses > 0
+                  ? Text(
+                      "Total Expenses: \u20A6${provider.totalExpenses.toStringAsFixed(2)}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    )
+                  : const SizedBox(),
             ),
             const SizedBox(
               height: 10,

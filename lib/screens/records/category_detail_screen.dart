@@ -114,44 +114,6 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
           Get.to(() => AddShopRecordScreen(
                 categoryModel: widget.categoryModel,
               ));
-          // showModalBottomSheet(
-          //     isScrollControlled: true,
-          //     context: context,
-          //     builder: (context) => Padding(
-          //           padding: MediaQuery.of(context).viewInsets,
-          //           child: Container(
-          //             padding: const EdgeInsets.symmetric(
-          //                 horizontal: 8, vertical: 8),
-          //             height: MediaQuery.of(context).size.height * .50,
-          //             child: Column(
-          //               children: [
-          //                 Row(
-          //                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //                   children: [
-          //                     const Text(
-          //                       "Add Record",
-          //                       style: TextStyle(
-          //                         fontWeight: FontWeight.w500,
-          //                       ),
-          //                     ),
-          //                     IconButton(
-          //                       onPressed: () {
-          //                         Navigator.pop(context);
-          //                       },
-          //                       icon: const Icon(
-          //                         Icons.close,
-          //                         color: pkColor,
-          //                       ),
-          //                     )
-          //                   ],
-          //                 ),
-          //                 const Divider(
-          //                   thickness: 1,
-          //                 ),
-          //               ],
-          //             ),
-          //           ),
-          //         ));
         },
         child: const Icon(Icons.add),
       ),
