@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_record/constants/colors.dart';
 import 'package:shop_record/providers/category_provider.dart';
+import 'package:shop_record/providers/inventory_provider.dart';
+import 'package:shop_record/providers/sales_provider.dart';
 import 'package:shop_record/providers/shop_record_provider.dart';
 import 'package:shop_record/screens/onboarding.dart';
 
@@ -35,13 +37,17 @@ class MyApp extends StatelessWidget {
             create: (context) => CategoryProvider()),
         ChangeNotifierProvider<ShopRecordProvider>(
             create: (context) => ShopRecordProvider()),
+        ChangeNotifierProvider<InventoryProvider>(
+            create: (context) => InventoryProvider()),
+        ChangeNotifierProvider<SalesProvider>(
+            create: (context) => SalesProvider()),
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Shop Record',
         theme: ThemeData(
-          primarySwatch: pkColor,
-        ),
+            primarySwatch: pkColor,
+            appBarTheme: const AppBarTheme(elevation: 0, centerTitle: true)),
         home: const OnboardingScreen(),
       ),
     );

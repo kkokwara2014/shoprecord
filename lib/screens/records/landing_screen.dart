@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shop_record/screens/inventory/all_inventory_screen.dart';
 import 'package:shop_record/screens/records/all_records.dart';
 import 'package:shop_record/screens/records/category_screen.dart';
-import 'package:shop_record/screens/records/expenses_screen.dart';
-import 'package:shop_record/screens/records/income_screen.dart';
+import 'package:shop_record/screens/sales/all_sales_screen.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({super.key});
@@ -20,9 +20,11 @@ class _LandingScreenState extends State<LandingScreen> {
     super.initState();
     pages = [
       const CategoryScreen(),
+      const AllInventoryScreen(),
+      const AllSalesScreen(),
       const AllRecordScreen(),
-      const IncomeScreen(),
-      const ExpensesScreen(),
+      // const IncomeScreen(),
+      // const ExpensesScreen(),
     ];
   }
 
@@ -39,15 +41,21 @@ class _LandingScreenState extends State<LandingScreen> {
               pageIndex = value;
             });
           },
-          items: [
-            const BottomNavigationBarItem(
+          items: const [
+            BottomNavigationBarItem(
                 icon: Icon(Icons.category), label: "Category"),
-            const BottomNavigationBarItem(
+
+            BottomNavigationBarItem(
+                icon: Icon(Icons.assignment_outlined),
+                label: "All Inventories"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_cart_checkout), label: "All Sales"),
+            BottomNavigationBarItem(
                 icon: Icon(Icons.receipt_long), label: "All Records"),
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.call_received), label: "Income"),
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.call_made), label: "Expenses"),
+            // BottomNavigationBarItem(
+            //     icon: Icon(Icons.call_received), label: "Income"),
+            // BottomNavigationBarItem(
+            //     icon: Icon(Icons.call_made), label: "Expenses"),
           ]),
     );
   }

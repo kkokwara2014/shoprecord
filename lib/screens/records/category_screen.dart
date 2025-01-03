@@ -2,9 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_record/constants/colors.dart';
 import 'package:shop_record/models/category_model.dart';
 import 'package:shop_record/providers/category_provider.dart';
-import 'package:shop_record/screens/records/category_detail_screen.dart';
+import 'package:shop_record/screens/inventory/inventory_screen.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});
@@ -66,8 +67,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
           ),
           MaterialButton(
             onPressed: () async {
-              await categoryProvider.addCategory();
               Navigator.pop(context);
+              await categoryProvider.addCategory();
             },
             child: const Text("Save"),
           ),
@@ -97,7 +98,10 @@ class _CategoryScreenState extends State<CategoryScreen> {
                     final category = catList[index];
                     return ListTile(
                       onTap: () {
-                        Get.to(() => CategoryDetailScreen(
+                        // Get.to(() => CategoryDetailScreen(
+                        //       categoryModel: category,
+                        //     ));
+                        Get.to(() => InventoryScreen(
                               categoryModel: category,
                             ));
                       },
@@ -134,8 +138,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
                         ),
                       ),
                       trailing: const Icon(
-                        Icons.arrow_circle_right_outlined,
-                        color: Colors.red,
+                        Icons.add_circle_outline,
+                        color: incomeColor,
                       ),
                     );
                   });

@@ -29,8 +29,6 @@ class _AllRecordScreenState extends State<AllRecordScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("All Records"),
-        elevation: 0,
-        centerTitle: true,
       ),
       body: Container(
         padding: const EdgeInsets.all(5),
